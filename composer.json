@@ -1,0 +1,28 @@
+{
+    "name": "xd/tencentcloud-im-sdk-php",
+    "version": "1.0.6",
+    "description": "TIM REST API",
+    "keywords": [
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://console.cloud.tencent.com/im",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "TencentCloud IM Team",
+            "homepage": "https://console.cloud.tencent.com/im"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "tencent/tls-sig-api-v2": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "TencentCloud\\IM\\": "src/"
+        }
+    }
+}
