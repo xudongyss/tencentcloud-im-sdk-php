@@ -1,49 +1,6 @@
   # tencentcloud-im-sdk-php
 TIM REST API
 
-
-## Requirements
-
-PHP 5.6 and later
-
-## Installation & Usage
-### Composer
-
-To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
-
-```
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/tencentcloud/tencentcloud-im-sdk-php.git"
-    }
-  ],
-  "require": {
-    "tencentcloud/tencentcloud-im-sdk-php": "^1.0.6"
-  }
-}
-```
-
-Then run `composer install`
-
-### Manual Installation
-
-Download the files and include `autoload.php`:
-
-```php
-    require_once('/path/to/tencentcloud-im-sdk-php/vendor/autoload.php');
-```
-
-## Tests
-
-To run the unit tests:
-
-```
-composer install
-./vendor/bin/phpunit
-```
-
 ## Getting Started
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
@@ -360,5 +317,3 @@ Class | Method | HTTP request | Description
  腾讯云IM REST API SDK 技术交流QQ群
 
  QQ群号:909322484
-
- <img src="images/img_group_01.png" width="30%" height="30%" />
