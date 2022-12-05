@@ -1,6 +1,7 @@
 <?php
 namespace TencentCloud\IM;
 
+use Tencent\TLSSigAPIv2;
 use TencentCloud\IM\Api\AccountApi;
 use TencentCloud\IM\Api\GroupApi;
 use TencentCloud\IM\Api\SingleChatApi;
@@ -98,5 +99,18 @@ class Tim
         } catch (\Exception $e) {
             throw $e;
         }
+    }
+
+    /**
+     * UserSig
+     * @param $userId
+     * @param $expire       有效期：单位 秒，默认 180 天
+     * @return string
+     * @throws \Exception
+     */
+    public static function genUserSig($userId, $expire = 86400 * 180)
+    {
+        $api = new TLSSigAPIv2(static::$sdkAppId, static::$key);
+        return $api->genUserSig($userId, $expire);
     }
 }
