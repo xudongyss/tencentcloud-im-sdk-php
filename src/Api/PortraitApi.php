@@ -277,7 +277,7 @@ class PortraitApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/profile/portrait_get';
         $formParams = [];
@@ -557,7 +557,7 @@ class PortraitApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/profile/portrait_set';
         $formParams = [];

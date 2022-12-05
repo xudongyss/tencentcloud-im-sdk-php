@@ -277,7 +277,7 @@ class RecentContactApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/recentcontact/delete';
         $formParams = [];
@@ -557,7 +557,7 @@ class RecentContactApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/recentcontact/get_list';
         $formParams = [];

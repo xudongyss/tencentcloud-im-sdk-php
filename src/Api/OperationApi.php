@@ -277,7 +277,7 @@ class OperationApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/im_cos_msg/allow_banned_object';
         $formParams = [];
@@ -557,7 +557,7 @@ class OperationApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/im_cos_msg/forbid_illegal_object';
         $formParams = [];
@@ -837,7 +837,7 @@ class OperationApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/im_cos_msg/get_cos_sig';
         $formParams = [];
@@ -1117,7 +1117,7 @@ class OperationApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/open_msg_svc/get_history';
         $formParams = [];
@@ -1397,7 +1397,7 @@ class OperationApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/ConfigSvc/GetIPList';
         $formParams = [];
@@ -1677,7 +1677,7 @@ class OperationApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openconfigsvr/getappinfo';
         $formParams = [];

@@ -277,7 +277,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/admin_getroammsg';
         $formParams = [];
@@ -557,7 +557,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/admin_msgwithdraw';
         $formParams = [];
@@ -837,7 +837,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/admin_set_msg_read';
         $formParams = [];
@@ -1117,7 +1117,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/batchsendmsg';
         $formParams = [];
@@ -1397,7 +1397,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/get_c2c_unread_msg_num';
         $formParams = [];
@@ -1677,7 +1677,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/importmsg';
         $formParams = [];
@@ -1957,7 +1957,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/modify_c2c_msg';
         $formParams = [];
@@ -2237,7 +2237,7 @@ class SingleChatApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/sendmsg';
         $formParams = [];

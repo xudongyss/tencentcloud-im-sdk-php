@@ -277,7 +277,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/add_group_member';
         $formParams = [];
@@ -557,7 +557,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/change_group_owner';
         $formParams = [];
@@ -837,7 +837,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/clear_group_attr';
         $formParams = [];
@@ -1117,7 +1117,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/create_group';
         $formParams = [];
@@ -1397,7 +1397,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/delete_group_member';
         $formParams = [];
@@ -1677,7 +1677,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/delete_group_msg_by_sender';
         $formParams = [];
@@ -1957,7 +1957,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/destroy_group';
         $formParams = [];
@@ -2237,7 +2237,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/forbid_send_msg';
         $formParams = [];
@@ -2517,7 +2517,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_appid_group_list';
         $formParams = [];
@@ -2797,7 +2797,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_group_attr';
         $formParams = [];
@@ -3077,7 +3077,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_group_info';
         $formParams = [];
@@ -3357,7 +3357,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_group_member_info';
         $formParams = [];
@@ -3637,7 +3637,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_group_shutted_uin';
         $formParams = [];
@@ -3917,7 +3917,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_joined_group_list';
         $formParams = [];
@@ -4197,7 +4197,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_online_member_num';
         $formParams = [];
@@ -4477,7 +4477,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/get_role_in_group';
         $formParams = [];
@@ -4757,7 +4757,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/group_msg_get_simple';
         $formParams = [];
@@ -5037,7 +5037,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/group_msg_recall';
         $formParams = [];
@@ -5317,7 +5317,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/import_group';
         $formParams = [];
@@ -5597,7 +5597,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/import_group_member';
         $formParams = [];
@@ -5877,7 +5877,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/import_group_msg';
         $formParams = [];
@@ -6157,7 +6157,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/modify_group_attr';
         $formParams = [];
@@ -6437,7 +6437,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/modify_group_base_info';
         $formParams = [];
@@ -6717,7 +6717,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/modify_group_member_info';
         $formParams = [];
@@ -6997,7 +6997,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/openim/modify_group_msg';
         $formParams = [];
@@ -7277,7 +7277,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/send_group_msg';
         $formParams = [];
@@ -7557,7 +7557,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/send_group_system_notification';
         $formParams = [];
@@ -7837,7 +7837,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/set_group_attr';
         $formParams = [];
@@ -8117,7 +8117,7 @@ class GroupApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/group_open_http_svc/set_unread_msg_num';
         $formParams = [];

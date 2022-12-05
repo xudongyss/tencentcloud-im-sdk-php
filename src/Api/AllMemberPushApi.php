@@ -277,7 +277,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_add_tag';
         $formParams = [];
@@ -557,7 +557,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_get_attr';
         $formParams = [];
@@ -837,7 +837,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_get_attr_name';
         $formParams = [];
@@ -1117,7 +1117,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_get_tag';
         $formParams = [];
@@ -1397,7 +1397,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_push';
         $formParams = [];
@@ -1677,7 +1677,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_remove_all_tags';
         $formParams = [];
@@ -1957,7 +1957,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_remove_attr';
         $formParams = [];
@@ -2237,7 +2237,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_remove_tag';
         $formParams = [];
@@ -2517,7 +2517,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_set_attr';
         $formParams = [];
@@ -2797,7 +2797,7 @@ class AllMemberPushApi
         }
 
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
-        $sig = $api->genSig($this->config->getIdentifier());
+        $sig = $api->genUserSig($this->config->getIdentifier());
 
         $resourcePath = '/v4/all_member_push/im_set_attr_name';
         $formParams = [];
