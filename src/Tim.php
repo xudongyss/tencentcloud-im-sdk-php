@@ -26,7 +26,7 @@ class Tim
     public static $group = null;
     /**
      * 单聊
-     * @var null
+     * @var SingleChatApi
      */
     public static $singleChat = null;
     /**
@@ -46,6 +46,30 @@ class Tim
         static::$account = new AccountApi(null, $config);
         static::$group = new GroupApi(null, $config);
         static::$singleChat = new SingleChatApi(null, $config);
+    }
+
+    /**
+     * @return AccountApi|null
+     */
+    public static function account()
+    {
+        return static::$account;
+    }
+
+    /**
+     * @return GroupApi|null
+     */
+    public static function group()
+    {
+        return static::$group;
+    }
+
+    /**
+     * @return SingleChatApi|null
+     */
+    public static function singleChat()
+    {
+        return static::$singleChat;
     }
 
     /**
