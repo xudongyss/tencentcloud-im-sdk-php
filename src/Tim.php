@@ -18,17 +18,17 @@ class Tim
      * 账号管理
      * @var AccountApi
      */
-    public static $account = null;
+    private static $account = null;
     /**
      * 群组管理
      * @var GroupApi
      */
-    public static $group = null;
+    private static $group = null;
     /**
      * 单聊
      * @var SingleChatApi
      */
-    public static $singleChat = null;
+    private static $singleChat = null;
     /**
      * 初始化
      * @param $sdkAppId
@@ -51,7 +51,7 @@ class Tim
     /**
      * @return AccountApi|null
      */
-    public static function account()
+    private static function account()
     {
         return static::$account;
     }
@@ -59,7 +59,7 @@ class Tim
     /**
      * @return GroupApi|null
      */
-    public static function group()
+    private static function group()
     {
         return static::$group;
     }
@@ -67,7 +67,7 @@ class Tim
     /**
      * @return SingleChatApi|null
      */
-    public static function singleChat()
+    private static function singleChat()
     {
         return static::$singleChat;
     }
@@ -80,5 +80,23 @@ class Tim
     public static function random()
     {
         return random_int(0, 999999999);
+    }
+
+    /**
+     * @param $name
+     * @param $arguments
+     * @return \TencentCloud\IM\Model\CommonResponse
+     * @throws ApiException
+     */
+    public static function __callStatic($name, $arguments)
+    {
+        try {
+            $response = call_user_func_array([static::$name(), $arguments[0]], [static::random(), $arguments[1]]);
+            if ($response->getErrorCode() === 0) return $response;
+
+            throw new ApiException($response->getErrorInfo(), $response->getErrorCode());
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 }
