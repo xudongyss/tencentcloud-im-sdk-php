@@ -44,6 +44,10 @@ class Tim
         $config->setIdentifier($identifier);
         $config->setKey($key);
 
+        static::$sdkAppId = $sdkAppId;
+        static::$identifier = $identifier;
+        static::$key = $key;
+
         static::$account = new AccountApi(null, $config);
         static::$group = new GroupApi(null, $config);
         static::$singleChat = new SingleChatApi(null, $config);
