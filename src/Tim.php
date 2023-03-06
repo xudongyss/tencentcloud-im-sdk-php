@@ -3,6 +3,7 @@ namespace TencentCloud\IM;
 
 use Tencent\TLSSigAPIv2;
 use TencentCloud\IM\Api\AccountApi;
+use TencentCloud\IM\Api\AllMemberPushApi;
 use TencentCloud\IM\Api\GroupApi;
 use TencentCloud\IM\Api\SingleChatApi;
 
@@ -20,16 +21,25 @@ class Tim
      * @var AccountApi
      */
     private static $account = null;
+
     /**
      * 群组管理
      * @var GroupApi
      */
     private static $group = null;
+
     /**
      * 单聊
      * @var SingleChatApi
      */
     private static $singleChat = null;
+
+    /**
+     * 全员推送
+     * @var AllMemberPushApi
+     */
+    private static $allMemberPush = null;
+
     /**
      * 初始化
      * @param $sdkAppId
@@ -51,9 +61,11 @@ class Tim
         static::$account = new AccountApi(null, $config);
         static::$group = new GroupApi(null, $config);
         static::$singleChat = new SingleChatApi(null, $config);
+        static::$allMemberPush = new AllMemberPushApi(null, $config);
     }
 
     /**
+     * 账号
      * @return AccountApi|null
      */
     private static function account()
@@ -62,6 +74,7 @@ class Tim
     }
 
     /**
+     * 群组
      * @return GroupApi|null
      */
     private static function group()
@@ -70,11 +83,21 @@ class Tim
     }
 
     /**
+     * 单聊
      * @return SingleChatApi|null
      */
     private static function singleChat()
     {
         return static::$singleChat;
+    }
+
+    /**
+     * 全员推送
+     * @return AllMemberPushApi|null
+     */
+    private static function allMemberPush()
+    {
+        return static::$allMemberPush;
     }
 
     /**
