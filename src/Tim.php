@@ -120,7 +120,11 @@ class Tim
     {
         try {
             $response = call_user_func_array([static::$name(), $arguments[0]], [static::random(), $arguments[1]]);
-            if ($response->getErrorCode() === 0) return $response;
+            if ($response->getErrorCode() === 0) {
+                $responseJson = (string)$response;
+
+                return json_decode($responseJson, true);
+            }
 
             throw new ApiException($response->getErrorInfo(), $response->getErrorCode());
         } catch (\Exception $e) {
