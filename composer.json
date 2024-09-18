@@ -1,6 +1,6 @@
 {
     "name": "xudongyss/tencentcloud-im-sdk-php",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "TIM REST API",
     "keywords": [
         "php",
