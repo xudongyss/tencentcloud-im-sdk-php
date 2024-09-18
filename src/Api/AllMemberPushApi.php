@@ -335,7 +335,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -615,7 +615,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -895,7 +895,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -1175,7 +1175,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -1455,7 +1455,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -1735,7 +1735,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2015,7 +2015,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2295,7 +2295,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2575,7 +2575,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2855,7 +2855,7 @@ class AllMemberPushApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
