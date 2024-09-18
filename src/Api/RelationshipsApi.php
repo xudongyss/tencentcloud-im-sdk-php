@@ -335,7 +335,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -351,7 +351,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -615,7 +615,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -631,7 +631,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -895,7 +895,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -911,7 +911,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1175,7 +1175,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -1191,7 +1191,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1455,7 +1455,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -1471,7 +1471,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1735,7 +1735,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -1751,7 +1751,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2015,7 +2015,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2031,7 +2031,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2295,7 +2295,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2311,7 +2311,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2575,7 +2575,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2591,7 +2591,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2855,7 +2855,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -2871,7 +2871,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3135,7 +3135,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -3151,7 +3151,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3415,7 +3415,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -3431,7 +3431,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3695,7 +3695,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -3711,7 +3711,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3975,7 +3975,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -3991,7 +3991,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -4255,7 +4255,7 @@ class RelationshipsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = http_build_query($formParams, "", null, PHP_QUERY_RFC3986);
             }
         }
 
@@ -4271,7 +4271,7 @@ class RelationshipsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = http_build_query($queryParams, "", null, PHP_QUERY_RFC3986);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
