@@ -5,6 +5,7 @@ use Tencent\TLSSigAPIv2;
 use TencentCloud\IM\Api\AccountApi;
 use TencentCloud\IM\Api\AllMemberPushApi;
 use TencentCloud\IM\Api\GroupApi;
+use TencentCloud\IM\Api\RoomApi;
 use TencentCloud\IM\Api\SingleChatApi;
 
 class Tim
@@ -41,6 +42,11 @@ class Tim
     private static $allMemberPush = null;
 
     /**
+     * 多人会议 房间
+     */
+    private static $room = null;
+
+    /**
      * 初始化
      * @param $sdkAppId
      * @param $identifier
@@ -62,6 +68,7 @@ class Tim
         static::$group = new GroupApi(null, $config);
         static::$singleChat = new SingleChatApi(null, $config);
         static::$allMemberPush = new AllMemberPushApi(null, $config);
+        static::$room = new RoomApi(null, $config);
     }
 
     /**
@@ -98,6 +105,15 @@ class Tim
     private static function allMemberPush()
     {
         return static::$allMemberPush;
+    }
+
+    /**
+     * 多人会议
+     * @return RoomApi|null
+     */
+    private static function room()
+    {
+        return static::$room;
     }
 
     /**
