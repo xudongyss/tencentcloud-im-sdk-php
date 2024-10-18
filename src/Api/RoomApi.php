@@ -12,6 +12,8 @@ use Tencent\TLSSigAPIv2;
 use TencentCloud\IM\ApiException;
 use TencentCloud\IM\Configuration;
 use TencentCloud\IM\HeaderSelector;
+use TencentCloud\IM\Model\CreateRoomResponse;
+use TencentCloud\IM\Model\DestroyRoomResponse;
 use TencentCloud\IM\ObjectSerializer;
 
 class RoomApi
@@ -56,126 +58,28 @@ class RoomApi
     }
 
     /**
-     * Operation createRoom
-     *
      * 创建房间（https://cloud.tencent.com/document/product/647/104446）
      *
-     * @param int $random random (required)
-     * @param \TencentCloud\IM\Model\CreateRoomRequest $createRoomRequest createRoomRequest (optional)
+     * @param  int $random (required)
+     * @param  \TencentCloud\IM\Model\CreateRoomRequest $request (optional)
      *
-     * @return array of \TencentCloud\IM\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \InvalidArgumentException
-     * @throws \TencentCloud\IM\ApiException on non-2xx response
      */
-    public function createRoom($random, $createRoomRequest = null)
+    public function createRoom($random, $request = null)
     {
-        list($response) = $this->createRoomWithHttpInfo($random, $createRoomRequest);
+        list($response) = $this->withHttpInfo($random, $request, CreateRoomResponse::class);
         return $response;
     }
 
     /**
-     * Operation createRoomWithHttpInfo
-     *
      * 创建房间（https://cloud.tencent.com/document/product/647/104446）
      *
-     * @param int $random (required)
-     * @param \TencentCloud\IM\Model\CreateRoomRequest $createRoomRequest (optional)
+     * @param  int $random (required)
+     * @param  \TencentCloud\IM\Model\CreateRoomRequest $request (optional)
      *
-     * @return array of \TencentCloud\IM\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \InvalidArgumentException
-     * @throws \TencentCloud\IM\ApiException on non-2xx response
      */
-    public function createRoomWithHttpInfo($random, $createRoomRequest = null)
+    public function createRoomAsync($random, $request = null)
     {
-        $request = $this->createRoomRequest($random, $createRoomRequest);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch ($statusCode) {
-                case 200:
-                    if ('\TencentCloud\IM\Model\CreateRoomResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TencentCloud\IM\Model\CreateRoomResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TencentCloud\IM\Model\CreateRoomResponse';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TencentCloud\IM\Model\CreateRoomResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createRoomAsync
-     *
-     * 创建房间（https://cloud.tencent.com/document/product/647/104446）
-     *
-     * @param int $random (required)
-     * @param \TencentCloud\IM\Model\CreateRoomRequest $createRoomRequest (optional)
-     *
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws \InvalidArgumentException
-     */
-    public function createRoomAsync($random, $createRoomRequest = null)
-    {
-        return $this->createRoomAsyncWithHttpInfo($random, $createRoomRequest)
+        return $this->asyncWithHttpInfo($random, $request, CreateRoomResponse::class)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -184,20 +88,39 @@ class RoomApi
     }
 
     /**
-     * Operation createRoomAsyncWithHttpInfo
+     * 解散房间（https://cloud.tencent.com/document/product/647/104447）
      *
-     * 创建房间（https://cloud.tencent.com/document/product/647/104446）
+     * @param  int $random (required)
+     * @param  \TencentCloud\IM\Model\DestroyRoomRequest $request (optional)
      *
-     * @param int $random (required)
-     * @param \TencentCloud\IM\Model\CreateRoomRequest $createRoomRequest (optional)
-     *
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws \InvalidArgumentException
      */
-    public function createRoomAsyncWithHttpInfo($random, $createRoomRequest = null)
+    public function destroyRoom($random, $request = null)
     {
-        $returnType = '\TencentCloud\IM\Model\CreateRoomResponse';
-        $request = $this->createRoomRequest($random, $createRoomRequest);
+        list($response) = $this->withHttpInfo($random, $request, DestroyRoomResponse::class);
+        return $response;
+    }
+
+    /**
+     * 解散房间（https://cloud.tencent.com/document/product/647/104447）
+     *
+     * @param  int $random (required)
+     * @param  \TencentCloud\IM\Model\DestroyRoomRequest $request (optional)
+     *
+     */
+    public function destroyRoomAsync($random, $request = null)
+    {
+        return $this->asyncWithHttpInfo($random, $request, DestroyRoomResponse::class)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function asyncWithHttpInfo($random, $createRoomRequest = null, $responseClass = null)
+    {
+        $returnType = $responseClass;
+        $request = $this->request($random, $createRoomRequest);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -233,16 +156,84 @@ class RoomApi
             );
     }
 
-    /**
-     * Create request for operation 'createRoom'
-     *
-     * @param int $random (required)
-     * @param \TencentCloud\IM\Model\CreateRoomRequest $createRoomRequest (optional)
-     *
-     * @return \GuzzleHttp\Psr7\Request
-     * @throws \InvalidArgumentException
-     */
-    protected function createRoomRequest($random, $createRoomRequest = null)
+    private function withHttpInfo($random, $request = null, $responseClass = null)
+    {
+        $request = $this->request($random, $request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch ($statusCode) {
+                case 200:
+                    if ($responseClass === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $responseClass, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = $responseClass;
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        $responseClass,
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    private function request($random, $request = null)
     {
         // verify the required parameter 'random' is set
         if ($random === null || (is_array($random) && count($random) === 0)) {
@@ -254,7 +245,7 @@ class RoomApi
         $api = new TLSSigAPIv2($this->config->getSdkappid(), $this->config->getKey());
         $sig = $api->genUserSig($this->config->getIdentifier());
 
-        $resourcePath = '/v4/room_engine_http_srv/create_room';
+        $resourcePath = $request->resourcePath;
         $formParams = [];
         $queryParams = ["sdkappid" => $this->config->getSdkappid(), "identifier" => $this->config->getIdentifier(),
             "usersig" => $sig, "contenttype" => "json"];
@@ -267,11 +258,10 @@ class RoomApi
             $queryParams['random'] = ObjectSerializer::toQueryValue($random);
         }
 
-
         // body params
         $_tempBody = null;
-        if (isset($createRoomRequest)) {
-            $_tempBody = $createRoomRequest;
+        if (isset($request)) {
+            $_tempBody = $request;
         }
 
         if ($multipart) {

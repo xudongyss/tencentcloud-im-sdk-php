@@ -1,21 +1,22 @@
 <?php
+
 namespace TencentCloud\IM\Model;
 
 use \ArrayAccess;
 use \TencentCloud\IM\ObjectSerializer;
 
-class CreateRoomRequest implements ModelInterface, ArrayAccess
+class DestroyRoomRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    public $resourcePath = '/v4/room_engine_http_srv/create_room';
+    public $resourcePath = '/v4/room_engine_http_srv/destroy_room';
 
     /**
      * The original name of the model.
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CreateRoomRequest';
+    protected static $openAPIModelName = 'DestroyRoomRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -23,8 +24,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'roomInfo' => '\TencentCloud\IM\Model\CreateRoomRequestRoomInfo',
-        'scheduleInviteeListAccount' => 'string[]'
+        'roomId' => 'string',
     ];
 
     /**
@@ -33,8 +33,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'roomInfo' => null,
-        'scheduleInviteeListAccount' => null
+        'roomId' => null,
     ];
 
     /**
@@ -64,8 +63,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'roomInfo' => 'RoomInfo',
-        'scheduleInviteeListAccount' => 'ScheduleInviteeList_Account'
+        'roomId' => 'RoomId',
     ];
 
     /**
@@ -74,8 +72,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'roomInfo' => 'setRoomInfo',
-        'scheduleInviteeListAccount' => 'setScheduleInviteeListAccount'
+        'roomId' => 'setRoomId',
     ];
 
     /**
@@ -84,8 +81,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'roomInfo' => 'getRoomInfo',
-        'scheduleInviteeListAccount' => 'getScheduleInviteeListAccount',
+        'roomId' => 'getRoomId',
     ];
 
     /**
@@ -144,8 +140,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['roomInfo'] = isset($data['roomInfo']) ? $data['roomInfo'] : null;
-        $this->container['scheduleInviteeListAccount'] = isset($data['scheduleInviteeListAccount']) ? $data['scheduleInviteeListAccount'] : null;
+        $this->container['roomId'] = isset($data['roomId']) ? $data['roomId'] : null;
     }
 
     /**
@@ -157,8 +152,8 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['roomInfo'] === null) {
-            $invalidProperties[] = "'roomInfo' can't be null";
+        if ($this->container['roomId'] === null) {
+            $invalidProperties[] = "'roomId' can't be null";
         }
 
         return $invalidProperties;
@@ -175,54 +170,18 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets roomInfo
-     *
-     * @return \TencentCloud\IM\Model\CreateRoomRequestRoomInfo
-     */
-    public function getRoomInfo()
+    public function getRoomId()
     {
-        return $this->container['roomInfo'];
+        return $this->container['roomId'];
     }
 
-    /**
-     * Sets roomInfo
-     *
-     * @param \TencentCloud\IM\Model\CreateRoomRequestRoomInfo $roomInfo
-     *
-     * @return $this
-     */
-    public function setRoomInfo($roomInfo)
+    public function setRoomId($roomId)
     {
-        $this->container['roomInfo'] = $roomInfo;
+        $this->container['roomId'] = $roomId;
 
         return $this;
     }
 
-    /**
-     * Gets scheduleInviteeListAccount
-     *
-     * @return string[]
-     */
-    public function getScheduleInviteeListAccount()
-    {
-        return $this->container['scheduleInviteeListAccount'];
-    }
-
-    /**
-     * Sets memberList
-     *
-     * @param string[] $scheduleInviteeListAccount 预约成员列表
-     *
-     * @return $this
-     */
-    public function setScheduleInviteeListAccount($scheduleInviteeListAccount)
-    {
-        $this->container['scheduleInviteeListAccount'] = $scheduleInviteeListAccount;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
