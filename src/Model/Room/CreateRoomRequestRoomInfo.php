@@ -1,9 +1,10 @@
 <?php
 
-namespace TencentCloud\IM\Model;
+namespace TencentCloud\IM\Model\Room;
 
-use \ArrayAccess;
-use \TencentCloud\IM\ObjectSerializer;
+use ArrayAccess;
+use TencentCloud\IM\Model\ModelInterface;
+use TencentCloud\IM\ObjectSerializer;
 
 class CreateRoomRequestRoomInfo implements ModelInterface, ArrayAccess
 {

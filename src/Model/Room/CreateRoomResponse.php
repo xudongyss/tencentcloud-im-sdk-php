@@ -1,21 +1,19 @@
 <?php
-namespace TencentCloud\IM\Model;
+namespace TencentCloud\IM\Model\Room;
 
-use \ArrayAccess;
-use \TencentCloud\IM\ObjectSerializer;
+use TencentCloud\IM\Model\CommonResponse;
+use TencentCloud\IM\ObjectSerializer;
 
-class CreateRoomRequest implements ModelInterface, ArrayAccess
+class CreateRoomResponse extends CommonResponse
 {
     const DISCRIMINATOR = null;
-
-    public $resourcePath = '/v4/room_engine_http_srv/create_room';
 
     /**
      * The original name of the model.
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CreateRoomRequest';
+    protected static $openAPIModelName = 'CreateRoomResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -23,8 +21,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'roomInfo' => '\TencentCloud\IM\Model\CreateRoomRequestRoomInfo',
-        'scheduleInviteeListAccount' => 'string[]'
+        'requestId' => 'string'
     ];
 
     /**
@@ -33,8 +30,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'roomInfo' => null,
-        'scheduleInviteeListAccount' => null
+        'requestId' => null
     ];
 
     /**
@@ -44,7 +40,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -54,7 +50,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -64,8 +60,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'roomInfo' => 'RoomInfo',
-        'scheduleInviteeListAccount' => 'ScheduleInviteeList_Account'
+        'requestId' => 'RequestId'
     ];
 
     /**
@@ -74,8 +69,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'roomInfo' => 'setRoomInfo',
-        'scheduleInviteeListAccount' => 'setScheduleInviteeListAccount'
+        'requestId' => 'setRequestId'
     ];
 
     /**
@@ -84,8 +78,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'roomInfo' => 'getRoomInfo',
-        'scheduleInviteeListAccount' => 'getScheduleInviteeListAccount',
+        'requestId' => 'getRequestId'
     ];
 
     /**
@@ -96,7 +89,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -106,7 +99,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -116,7 +109,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -130,13 +123,6 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -144,8 +130,9 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['roomInfo'] = isset($data['roomInfo']) ? $data['roomInfo'] : null;
-        $this->container['scheduleInviteeListAccount'] = isset($data['scheduleInviteeListAccount']) ? $data['scheduleInviteeListAccount'] : null;
+        parent::__construct($data);
+
+        $this->container['requestId'] = isset($data['requestId']) ? $data['requestId'] : null;
     }
 
     /**
@@ -155,11 +142,7 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['roomInfo'] === null) {
-            $invalidProperties[] = "'roomInfo' can't be null";
-        }
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -176,50 +159,14 @@ class CreateRoomRequest implements ModelInterface, ArrayAccess
     }
 
 
-    /**
-     * Gets roomInfo
-     *
-     * @return \TencentCloud\IM\Model\CreateRoomRequestRoomInfo
-     */
-    public function getRoomInfo()
+    public function getRequestId()
     {
-        return $this->container['roomInfo'];
+        return $this->container['requestId'];
     }
 
-    /**
-     * Sets roomInfo
-     *
-     * @param \TencentCloud\IM\Model\CreateRoomRequestRoomInfo $roomInfo
-     *
-     * @return $this
-     */
-    public function setRoomInfo($roomInfo)
+    public function setRequestId($requestId)
     {
-        $this->container['roomInfo'] = $roomInfo;
-
-        return $this;
-    }
-
-    /**
-     * Gets scheduleInviteeListAccount
-     *
-     * @return string[]
-     */
-    public function getScheduleInviteeListAccount()
-    {
-        return $this->container['scheduleInviteeListAccount'];
-    }
-
-    /**
-     * Sets memberList
-     *
-     * @param string[] $scheduleInviteeListAccount 预约成员列表
-     *
-     * @return $this
-     */
-    public function setScheduleInviteeListAccount($scheduleInviteeListAccount)
-    {
-        $this->container['scheduleInviteeListAccount'] = $scheduleInviteeListAccount;
+        $this->container['requestId'] = $requestId;
 
         return $this;
     }

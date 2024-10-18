@@ -1,22 +1,19 @@
 <?php
+namespace TencentCloud\IM\Model\Room;
 
-namespace TencentCloud\IM\Model;
+use TencentCloud\IM\Model\CommonResponse;
+use TencentCloud\IM\ObjectSerializer;
 
-use \ArrayAccess;
-use \TencentCloud\IM\ObjectSerializer;
-
-class DestroyRoomRequest implements ModelInterface, ArrayAccess
+class GetCallbackResponse extends CommonResponse
 {
     const DISCRIMINATOR = null;
-
-    public $resourcePath = '/v4/room_engine_http_srv/destroy_room';
 
     /**
      * The original name of the model.
      *
      * @var string
      */
-    protected static $openAPIModelName = 'DestroyRoomRequest';
+    protected static $openAPIModelName = 'GetCallbackResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -24,7 +21,8 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'roomId' => 'string',
+        'requestId' => 'string',
+        'response' => 'object'
     ];
 
     /**
@@ -33,7 +31,8 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'roomId' => null,
+        'requestId' => null,
+        'response' => null
     ];
 
     /**
@@ -43,7 +42,7 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -53,7 +52,7 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -63,7 +62,8 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'roomId' => 'RoomId',
+        'requestId' => 'RequestId',
+        'response' => 'Response'
     ];
 
     /**
@@ -72,7 +72,8 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'roomId' => 'setRoomId',
+        'requestId' => 'setRequestId',
+        'response' => 'setResponse'
     ];
 
     /**
@@ -81,7 +82,8 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'roomId' => 'getRoomId',
+        'requestId' => 'getRequestId',
+        'response' => 'getResponse'
     ];
 
     /**
@@ -92,7 +94,7 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -102,7 +104,7 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -112,7 +114,7 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -126,13 +128,6 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -140,7 +135,10 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['roomId'] = isset($data['roomId']) ? $data['roomId'] : null;
+        parent::__construct($data);
+
+        $this->container['requestId'] = isset($data['requestId']) ? $data['requestId'] : null;
+        $this->container['response'] = isset($data['response']) ? $data['response'] : null;
     }
 
     /**
@@ -150,11 +148,7 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['roomId'] === null) {
-            $invalidProperties[] = "'roomId' can't be null";
-        }
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -170,14 +164,27 @@ class DestroyRoomRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-    public function getRoomId()
+
+    public function getRequestId()
     {
-        return $this->container['roomId'];
+        return $this->container['requestId'];
     }
 
-    public function setRoomId($roomId)
+    public function setRequestId($requestId)
     {
-        $this->container['roomId'] = $roomId;
+        $this->container['requestId'] = $requestId;
+
+        return $this;
+    }
+
+    public function getResponse()
+    {
+        return $this->container['response'];
+    }
+
+    public function setResponse($response)
+    {
+        $this->container['response'] = $response;
 
         return $this;
     }

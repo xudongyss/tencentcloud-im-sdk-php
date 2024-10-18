@@ -1,27 +1,30 @@
 <?php
-namespace TencentCloud\IM\Model;
 
-use \TencentCloud\IM\ObjectSerializer;
+namespace TencentCloud\IM\Model\Room;
 
-class DestroyRoomResponse extends CommonResponse
+use ArrayAccess;
+use TencentCloud\IM\Model\ModelInterface;
+use TencentCloud\IM\ObjectSerializer;
+
+class GetCallbackRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
+
+    public $resourcePath = '/v4/room_config/get_callback';
 
     /**
      * The original name of the model.
      *
      * @var string
      */
-    protected static $openAPIModelName = 'DestroyRoomResponse';
+    protected static $openAPIModelName = 'GetCallbackRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
      */
-    protected static $openAPITypes = [
-        'requestId' => 'string'
-    ];
+    protected static $openAPITypes = [];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
@@ -29,7 +32,7 @@ class DestroyRoomResponse extends CommonResponse
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'requestId' => null
+        'roomId' => null,
     ];
 
     /**
@@ -39,7 +42,7 @@ class DestroyRoomResponse extends CommonResponse
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes + parent::openAPITypes();
+        return self::$openAPITypes;
     }
 
     /**
@@ -49,7 +52,7 @@ class DestroyRoomResponse extends CommonResponse
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats + parent::openAPIFormats();
+        return self::$openAPIFormats;
     }
 
     /**
@@ -58,27 +61,21 @@ class DestroyRoomResponse extends CommonResponse
      *
      * @var string[]
      */
-    protected static $attributeMap = [
-        'requestId' => 'RequestId'
-    ];
+    protected static $attributeMap = [];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
      */
-    protected static $setters = [
-        'requestId' => 'setRequestId'
-    ];
+    protected static $setters = [];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
      */
-    protected static $getters = [
-        'requestId' => 'getRequestId'
-    ];
+    protected static $getters = [];
 
     /**
      * Array of attributes where the key is the local name,
@@ -88,7 +85,7 @@ class DestroyRoomResponse extends CommonResponse
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -98,7 +95,7 @@ class DestroyRoomResponse extends CommonResponse
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -108,7 +105,7 @@ class DestroyRoomResponse extends CommonResponse
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -122,6 +119,13 @@ class DestroyRoomResponse extends CommonResponse
     }
 
     /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -129,9 +133,7 @@ class DestroyRoomResponse extends CommonResponse
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
 
-        $this->container['requestId'] = isset($data['requestId']) ? $data['requestId'] : null;
     }
 
     /**
@@ -141,7 +143,7 @@ class DestroyRoomResponse extends CommonResponse
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -157,18 +159,6 @@ class DestroyRoomResponse extends CommonResponse
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    public function getRequestId()
-    {
-        return $this->container['requestId'];
-    }
-
-    public function setRequestId($requestId)
-    {
-        $this->container['requestId'] = $requestId;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -1,18 +1,23 @@
 <?php
-namespace TencentCloud\IM\Model;
 
-use \TencentCloud\IM\ObjectSerializer;
+namespace TencentCloud\IM\Model\Room;
 
-class CreateRoomResponse extends CommonResponse
+use ArrayAccess;
+use TencentCloud\IM\Model\ModelInterface;
+use TencentCloud\IM\ObjectSerializer;
+
+class DestroyRoomRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
+
+    public $resourcePath = '/v4/room_engine_http_srv/destroy_room';
 
     /**
      * The original name of the model.
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CreateRoomResponse';
+    protected static $openAPIModelName = 'DestroyRoomRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -20,7 +25,7 @@ class CreateRoomResponse extends CommonResponse
      * @var string[]
      */
     protected static $openAPITypes = [
-        'requestId' => 'string'
+        'roomId' => 'string',
     ];
 
     /**
@@ -29,7 +34,7 @@ class CreateRoomResponse extends CommonResponse
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'requestId' => null
+        'roomId' => null,
     ];
 
     /**
@@ -39,7 +44,7 @@ class CreateRoomResponse extends CommonResponse
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes + parent::openAPITypes();
+        return self::$openAPITypes;
     }
 
     /**
@@ -49,7 +54,7 @@ class CreateRoomResponse extends CommonResponse
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats + parent::openAPIFormats();
+        return self::$openAPIFormats;
     }
 
     /**
@@ -59,7 +64,7 @@ class CreateRoomResponse extends CommonResponse
      * @var string[]
      */
     protected static $attributeMap = [
-        'requestId' => 'RequestId'
+        'roomId' => 'RoomId',
     ];
 
     /**
@@ -68,7 +73,7 @@ class CreateRoomResponse extends CommonResponse
      * @var string[]
      */
     protected static $setters = [
-        'requestId' => 'setRequestId'
+        'roomId' => 'setRoomId',
     ];
 
     /**
@@ -77,7 +82,7 @@ class CreateRoomResponse extends CommonResponse
      * @var string[]
      */
     protected static $getters = [
-        'requestId' => 'getRequestId'
+        'roomId' => 'getRoomId',
     ];
 
     /**
@@ -88,7 +93,7 @@ class CreateRoomResponse extends CommonResponse
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -98,7 +103,7 @@ class CreateRoomResponse extends CommonResponse
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -108,7 +113,7 @@ class CreateRoomResponse extends CommonResponse
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -122,6 +127,13 @@ class CreateRoomResponse extends CommonResponse
     }
 
     /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -129,9 +141,7 @@ class CreateRoomResponse extends CommonResponse
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['requestId'] = isset($data['requestId']) ? $data['requestId'] : null;
+        $this->container['roomId'] = isset($data['roomId']) ? $data['roomId'] : null;
     }
 
     /**
@@ -141,7 +151,11 @@ class CreateRoomResponse extends CommonResponse
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
+
+        if ($this->container['roomId'] === null) {
+            $invalidProperties[] = "'roomId' can't be null";
+        }
 
         return $invalidProperties;
     }
@@ -157,18 +171,18 @@ class CreateRoomResponse extends CommonResponse
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    public function getRequestId()
+    public function getRoomId()
     {
-        return $this->container['requestId'];
+        return $this->container['roomId'];
     }
 
-    public function setRequestId($requestId)
+    public function setRoomId($roomId)
     {
-        $this->container['requestId'] = $requestId;
+        $this->container['roomId'] = $roomId;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
