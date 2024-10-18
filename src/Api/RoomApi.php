@@ -13,7 +13,12 @@ use TencentCloud\IM\ApiException;
 use TencentCloud\IM\Configuration;
 use TencentCloud\IM\HeaderSelector;
 use TencentCloud\IM\Model\Room\CreateRoomResponse;
+use TencentCloud\IM\Model\Room\DeleteCallbackResponse;
 use TencentCloud\IM\Model\Room\DestroyRoomResponse;
+use TencentCloud\IM\Model\Room\GetCallbackResponse;
+use TencentCloud\IM\Model\Room\KickUserOutResponse;
+use TencentCloud\IM\Model\Room\SetCallbackResponse;
+use TencentCloud\IM\Model\Room\UpdateCallbackResponse;
 use TencentCloud\IM\ObjectSerializer;
 
 class RoomApi
@@ -60,8 +65,8 @@ class RoomApi
     /**
      * 创建房间（https://cloud.tencent.com/document/product/647/104446）
      *
-     * @param  int $random (required)
-     * @param  \TencentCloud\IM\Model\Room\CreateRoomRequest $request (optional)
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\CreateRoomRequest $request (optional)
      *
      */
     public function createRoom($random, $request = null)
@@ -73,8 +78,8 @@ class RoomApi
     /**
      * 创建房间（https://cloud.tencent.com/document/product/647/104446）
      *
-     * @param  int $random (required)
-     * @param  \TencentCloud\IM\Model\Room\CreateRoomRequest $request (optional)
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\CreateRoomRequest $request (optional)
      *
      */
     public function createRoomAsync($random, $request = null)
@@ -90,8 +95,8 @@ class RoomApi
     /**
      * 解散房间（https://cloud.tencent.com/document/product/647/104447）
      *
-     * @param  int $random (required)
-     * @param  \TencentCloud\IM\Model\Room\DestroyRoomRequest $request (optional)
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\DestroyRoomRequest $request (optional)
      *
      */
     public function destroyRoom($random, $request = null)
@@ -103,8 +108,8 @@ class RoomApi
     /**
      * 解散房间（https://cloud.tencent.com/document/product/647/104447）
      *
-     * @param  int $random (required)
-     * @param  \TencentCloud\IM\Model\Room\DestroyRoomRequest $request (optional)
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\DestroyRoomRequest $request (optional)
      *
      */
     public function destroyRoomAsync($random, $request = null)
@@ -118,16 +123,136 @@ class RoomApi
     }
 
     /**
+     * 踢出房间成员（https://cloud.tencent.com/document/product/647/104458）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\KickUserOutRequest $request (optional)
+     *
+     */
+    public function kickUserOutRoom($random, $request = null)
+    {
+        list($response) = $this->withHttpInfo($random, $request, KickUserOutResponse::class);
+        return $response;
+    }
+
+    /**
+     * 踢出房间成员（https://cloud.tencent.com/document/product/647/104458）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\KickUserOutRequest $request (optional)
+     *
+     */
+    public function kickUserOutRoomAsync($random, $request = null)
+    {
+        return $this->asyncWithHttpInfo($random, $request, KickUserOutResponse::class)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
      * 查询回调配置（https://cloud.tencent.com/document/product/647/104468）
      *
-     * @param  int $random (required)
-     * @param  \TencentCloud\IM\Model\Room\GetCallbackRequest $request (optional)
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\GetCallbackRequest $request (optional)
      *
      */
     public function getCallback($random, $request = null)
     {
-        list($response) = $this->withHttpInfo($random, $request, DestroyRoomResponse::class);
+        list($response) = $this->withHttpInfo($random, $request, GetCallbackResponse::class);
         return $response;
+    }
+
+    /**
+     * 创建回调配置（https://cloud.tencent.com/document/product/647/104469）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\SetCallbackRequest $request (optional)
+     *
+     */
+    public function setCallback($random, $request = null)
+    {
+        list($response) = $this->withHttpInfo($random, $request, SetCallbackResponse::class);
+        return $response;
+    }
+
+    /**
+     * 创建回调配置（https://cloud.tencent.com/document/product/647/104469）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\SetCallbackRequest $request (optional)
+     *
+     */
+    public function setCallbackAsync($random, $request = null)
+    {
+        return $this->asyncWithHttpInfo($random, $request, SetCallbackResponse::class)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * 更新回调配置（https://cloud.tencent.com/document/product/647/104470）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\UpdateCallbackRequest $request (optional)
+     *
+     */
+    public function updateCallback($random, $request = null)
+    {
+        list($response) = $this->withHttpInfo($random, $request, UpdateCallbackResponse::class);
+        return $response;
+    }
+
+    /**
+     * 更新回调配置（https://cloud.tencent.com/document/product/647/104470）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\SetCallbackRequest $request (optional)
+     *
+     */
+    public function updateCallbackAsync($random, $request = null)
+    {
+        return $this->asyncWithHttpInfo($random, $request, UpdateCallbackResponse::class)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * 删除回调配置（https://cloud.tencent.com/document/product/647/104471）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\DeleteCallbackRequest $request (optional)
+     *
+     */
+    public function deleteCallback($random, $request = null)
+    {
+        list($response) = $this->withHttpInfo($random, $request, DeleteCallbackResponse::class);
+        return $response;
+    }
+
+    /**
+     * 删除回调配置（https://cloud.tencent.com/document/product/647/104471）
+     *
+     * @param int $random (required)
+     * @param \TencentCloud\IM\Model\Room\DeleteCallbackRequest $request (optional)
+     *
+     */
+    public function deleteCallbackRoomAsync($random, $request = null)
+    {
+        return $this->asyncWithHttpInfo($random, $request, DeleteCallbackResponse::class)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
     }
 
     public function asyncWithHttpInfo($random, $createRoomRequest = null, $responseClass = null)
