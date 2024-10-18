@@ -270,8 +270,8 @@ class RoomApi
 
         // body params
         $_tempBody = null;
-        if (isset($accountImportRequest)) {
-            $_tempBody = $accountImportRequest;
+        if (isset($createRoomRequest)) {
+            $_tempBody = $createRoomRequest;
         }
 
         if ($multipart) {
